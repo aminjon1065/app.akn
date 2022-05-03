@@ -14,8 +14,19 @@
   width: 40%;
 }
 
+
 @media screen and (max-width: 575px) {
   .search-container {
     width: 60%;
+    margin: auto;
   }
 }
+
+.dropdown-menu {
+  left:inherit !important;
+  right:0;
+}
+
+//.sign-in-container{
+//  width: 50em;
+//}

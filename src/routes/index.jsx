@@ -4,14 +4,12 @@ import MainView from "../views";
 import SignIn from "../views/Auth/SignIn";
 import NotFound from "../views/NotFound";
 import Dashboard from "../views/Dashboard";
-import Header from "../components/header";
 
 const MainRoutes = () => {
     return (
         <>
 
             <div className="bg-bg vh-100">
-                <Header/>
                 <Routes>
                     <Route path="/" element={<MainView/>}/>
                     <Route path="/sign-in" element={<SignIn/>}/>

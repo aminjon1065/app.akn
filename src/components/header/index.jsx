@@ -1,15 +1,24 @@
 import React from 'react';
-import {Button, Container, Form, FormControl, InputGroup, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {Button, Container, Dropdown, FormControl, InputGroup, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {BsSearch} from 'react-icons/bs'
+import {BiUserCircle} from 'react-icons/bi'
 
 const Index = () => {
     return (
         <>
             <Navbar collapseOnSelect sticky={"top"} bg="white" expand="sm" className="shadow-sm">
                 <Container>
-                    <Navbar.Brand as={Link} to={"/"}><span className="m-0 p-0 fw-bold">DEV</span></Navbar.Brand>
-                    <Container className="search-container">
+                    <Navbar.Brand as={Link} to={"/"}>
+                        <span
+                            className="m-0 p-0 fw-bold bg-dark text-light p-1 rounded-3"
+                        >
+                            AKN
+                        </span>
+                    </Navbar.Brand>
+                    <Container
+                        className="search-container ms-0"
+                    >
                         <InputGroup>
                             <FormControl
                                 type="text"
@@ -17,27 +26,30 @@ const Index = () => {
                                 className="shadow-none border-hover-links search-input rounded"
                                 aria-label="Search"
                             />
-                            <span className="position-relative d-flex justify-content-center align-content-center">
-                                <Button className="search-btn border-0" variant="outline-hover-links">
-                                    <BsSearch className="text-black"/>
+                            <span
+                                className="position-relative d-flex justify-content-center align-content-center"
+                            >
+                                <Button
+                                    className="search-btn border-0"
+                                    variant="outline-hover-links"
+                                >
+                                    <BsSearch
+                                        className="text-black"
+                                    />
                                 </Button>
                             </span>
                         </InputGroup>
                     </Container>
-                    <Navbar.Toggle aria-controls="nav"/>
-                    <Navbar.Collapse id="nav">
-                        <Nav className="ms-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#link">Link</Nav.Link>
-                            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                <NavDropdown.Divider/>
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                            </NavDropdown>
-                        </Nav>
-                    </Navbar.Collapse>
+                    <Dropdown role={"menu"}>
+                        <Dropdown.Toggle variant="soft-grey" id="dropdown-basic">
+                            <span className="text-center fw-bold"><BiUserCircle/> Name</span>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </Container>
             </Navbar>
         </>
