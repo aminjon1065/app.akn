@@ -24,9 +24,9 @@ const Index = () => {
                             </span>
                         </InputGroup>
                     </Container>
-                    <Navbar.Toggle aria-controls="profile"/>
-                    <Navbar.Collapse id="profile">
-                        <Nav className="me-auto">
+                    <Navbar.Toggle aria-controls="nav"/>
+                    <Navbar.Collapse id="nav">
+                        <Nav className="ms-auto">
                             <Nav.Link href="#home">Home</Nav.Link>
                             <Nav.Link href="#link">Link</Nav.Link>
                             <NavDropdown title="Dropdown" id="basic-nav-dropdown">

@@ -5,14 +5,17 @@
   right: 2.3rem;
   z-index: 9999 !important;
 }
+
 .search-input:hover {
   z-index: 1;
 }
 
-.search-container{
+.search-container {
   width: 40%;
 }
 
-@media screen and (min-width: 640px){
-  
+@media screen and (max-width: 575px) {
+  .search-container {
+    width: 60%;
+  }
 }
