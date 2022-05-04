@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Container, Dropdown, FormControl, InputGroup, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {Button, Container, Dropdown, FormControl, InputGroup, Navbar,} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {BsSearch} from 'react-icons/bs'
 import {BiUserCircle} from 'react-icons/bi'
@@ -9,9 +9,9 @@ const Index = () => {
         <>
             <Navbar collapseOnSelect sticky={"top"} bg="white" expand="sm" className="shadow-sm">
                 <Container>
-                    <Navbar.Brand as={Link} to={"/"}>
+                    <Navbar.Brand as={Link} to={"/"} className="m-0">
                         <span
-                            className="m-0 p-0 fw-bold bg-dark text-light p-1 rounded-3"
+                            className="m-0 p-0 fw-bold fw-lighter bg-dark text-light ps-2 pe-2 pt-1 pb-1 rounded-3 lh-1"
                         >
                             AKN
                         </span>
@@ -41,7 +41,7 @@ const Index = () => {
                         </InputGroup>
                     </Container>
                     <Dropdown role={"menu"}>
-                        <Dropdown.Toggle variant="soft-grey" id="dropdown-basic">
+                        <Dropdown.Toggle variant="soft-grey" className="profile-dropdown" id="dropdown-basic">
                             <span className="text-center fw-bold"><BiUserCircle/> Name</span>
                         </Dropdown.Toggle>
                         <Dropdown.Menu>

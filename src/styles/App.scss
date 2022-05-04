@@ -21,10 +21,13 @@
     margin: auto;
   }
 }
+.profile-dropdown::after{
+  display: none;
+}
 
 .dropdown-menu {
-  left:inherit !important;
-  right:0;
+  left: inherit !important;
+  right: 0;
 }
 
 //.sign-in-container{
