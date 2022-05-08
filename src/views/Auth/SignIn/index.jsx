@@ -1,32 +1,43 @@
-import React, { useEffect, useState } from "react";
-import { Button, Container, FloatingLabel, Form, Image } from "react-bootstrap";
+import React, {useMemo, useState } from "react";
+import {
+  Alert,
+  Button,
+  Container,
+  FloatingLabel,
+  Form,
+  Image,
+  ModalTitle,
+} from "react-bootstrap";
 import { BiLogIn } from "react-icons/bi";
 import logo from "./../../../assets/images/logo.png";
 import AuthServices from "../../../services/auth.services";
 import { useNavigate } from "react-router-dom";
+import DashboardTest from "../../Dashboard/DashboardTest";
+import useNotification from "./../../../hooks/notification";
 
 const Index = () => {
   const token = localStorage.getItem("__sign_token");
-  useEffect(() => {});
+  const [status, setStatus] = useState("");
+  const notificate = useNotification(status);
+  const alllert = useMemo(()=>{
+
+  })
   const navigate = useNavigate();
   const [credintials, setCredentials] = useState({
     email: "",
     password: "",
   });
-
   const authService = async () => {
-    await new AuthServices(credintials);
-    setTimeout(() => {
-      if (!token) {
-        alert("error");
-      }
-    }, 3000);
-
-    setTimeout(() => {
-      if (token) {
-        navigate("/dashboard");
-      }
-    }, 3500);
+    await AuthServices.login(credintials)
+      .then((res) => {
+        if (res.status === 201) {
+          localStorage.setItem("__sign_token", res.data.token);
+          navigate("/dashboard", { state: res.data.status });
+        }
+      })
+      .catch((err) => {
+        setStatus(err.response.data.status);
+      });
   };
 
   const emailChange = (e) => {
@@ -41,6 +52,7 @@ const Index = () => {
     <>
       <Container className="vh-100 d-flex justify-content-center align-items-center">
         <Container className="sign-in-container col-sm-12 col-md-6 col-lg-5 col-xl-4">
+          {status === "error" ? notificate : null}
           <Image src={logo} className="mx-auto d-block mb-2" width={96} />
           <FloatingLabel
             controlId="floatingInput"

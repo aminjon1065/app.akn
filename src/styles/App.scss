@@ -6,6 +6,7 @@
   z-index: 9999 !important;
 }
 
+
 .search-input:hover {
   z-index: 1;
 }
@@ -21,13 +22,18 @@
     margin: auto;
   }
 }
-.profile-dropdown::after{
+
+.profile-dropdown::after {
   display: none;
 }
 
 .dropdown-menu {
   left: inherit !important;
   right: 0;
+}
+
+.z-index-999 {
+  z-index: 1 !important;
 }
 
 //.sign-in-container{
