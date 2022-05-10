@@ -1,11 +1,17 @@
-import React from 'react';
+import React from "react";
+import { useLocation } from "react-router-dom";
+import useNotification from "../../hooks/notification";
 
 const DashboardTest = () => {
-    return (
-        <div>
-            Test
-        </div>
-    );
+  const location = useLocation();
+  const notificate = useNotification(location.state);
+
+  return (
+    <div>
+      {notificate}
+      Status Test
+    </div>
+  );
 };
 
 export default DashboardTest;
