@@ -1,27 +1,16 @@
-import React, {useMemo, useState } from "react";
-import {
-  Alert,
-  Button,
-  Container,
-  FloatingLabel,
-  Form,
-  Image,
-  ModalTitle,
-} from "react-bootstrap";
+import React, { useMemo, useState } from "react";
+import { Button, Container, FloatingLabel, Form, Image } from "react-bootstrap";
 import { BiLogIn } from "react-icons/bi";
 import logo from "./../../../assets/images/logo.png";
 import AuthServices from "../../../services/auth.services";
 import { useNavigate } from "react-router-dom";
-import DashboardTest from "../../Dashboard/DashboardTest";
 import useNotification from "./../../../hooks/notification";
 
 const Index = () => {
   const token = localStorage.getItem("__sign_token");
   const [status, setStatus] = useState("");
-  const notificate = useNotification(status);
-  const alllert = useMemo(()=>{
-
-  })
+  const [showAlert, setShowAlert] = useState(false);
+  const notificate = useNotification(status, showAlert);
   const navigate = useNavigate();
   const [credintials, setCredentials] = useState({
     email: "",
@@ -37,6 +26,7 @@ const Index = () => {
       })
       .catch((err) => {
         setStatus(err.response.data.status);
+        setShowAlert(true);
       });
   };
 

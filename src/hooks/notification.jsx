@@ -1,8 +1,13 @@
 import React from "react";
-import { Alert, Toast, ToastContainer } from "react-bootstrap";
+import { Toast, ToastContainer } from "react-bootstrap";
 
-const useNotification = (variant = null, user = "Пользователь") => {
-  const [show, setShow] = React.useState(true);
+const useNotification = (
+  variant = null,
+  user = "Пользователь",
+  showAlert = true
+) => {
+  const [show, setShow] = React.useState(showAlert);
+  React.useEffect(() => {}, [showAlert]);
   if (variant === "success") {
     return (
       <ToastContainer position="top-end" className="mt-3 p-3 pt-5">
@@ -13,14 +18,16 @@ const useNotification = (variant = null, user = "Пользователь") => {
               className="rounded me-2"
               alt=""
             />
-            <strong className="me-auto">Успешно вошли в систему</strong>
+            <strong className="me-auto text-apple-green">
+              Успешно вошли в систему
+            </strong>
             <small>Сейчас</small>
           </Toast.Header>
           <Toast.Body>Здавствуй {user}!</Toast.Body>
         </Toast>
       </ToastContainer>
     );
-  } else if (variant === "error") {
+  } else if (variant === "error" && showAlert) {
     return (
       <ToastContainer position="top-center" className="p-3">
         <Toast show={show} onClose={() => setShow(false)}>
