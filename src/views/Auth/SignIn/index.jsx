@@ -14,16 +14,15 @@ const Index = () => {
 
     const authService = async () => {
         await new AuthServices(credintials)
-        setInterval(() => {
+        setTimeout(() => {
             if (!localStorage.getItem('__sign_token')) {
                 alert('error')
             }
+            if (localStorage.getItem('__sign_token')){
+                navigate('/dashboard')
+            }
         }, 2000)
 
-
-        setInterval(() => {
-            navigate('/dashboard')
-        }, 5000)
     }
 
     const emailChange = (e) => {
